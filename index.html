@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>YouTube To Audio</title>
+    <script type="text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+  </head>
+  <body>
+    <input type="text" name="" id = "youtubelink" value="">
+    <button type="button" name="button" id = "download">Download</button>
+
+    <audio id="audio" autoplay controls style = "margin-top: 30px; display: none;"></audio>
+
+    <script>
+      $.getScript("converter.js", function(){
+        $("#download").click(function(){
+          $("#audio").css("display", "block");
+          var youtubelink = $('#youtubelink').val();
+          var audio_tag = $('#audio')[0];
+          converter(youtubelink, audio_tag);
+        });
+      });
+    </script>
+  </body>
+</html>
